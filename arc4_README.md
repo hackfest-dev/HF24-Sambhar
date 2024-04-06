@@ -24,12 +24,9 @@
 
 ## Constraints:
 > Time complexity involved in model training and prediction for each data update.
-
-> To allocate the amount that can be invested based on the total budget should is 
-
-> Model needed or greedy strategy with heuristic of fractional knapsack will solve the 
-
-> Problem in O(n * nl*og ( n )  ) instead of 2^n - go with XGBoosts.
+ To allocate the amount that can be invested based on the total budget should is 
+ Model needed or greedy strategy with heuristic of fractional knapsack will solve the 
+ Problem in O(n * nl*og ( n )  ) instead of 2^n - go with XGBoosts.
 
 
 
