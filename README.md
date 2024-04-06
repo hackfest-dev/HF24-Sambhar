@@ -43,6 +43,15 @@
 
 ## Solution Strategy
 
+### Data Preprocessing
+> Data Discretisation
+
+> Data Cleaning
+
+> Data Integration
+
+> Data Reduction
+
 > Provide data integrity by having the data access restrictions following the Three Schema Architecture.
 
 > Use Decision Tree Regressor or Random Forest Regressor with gradient based boosting to predict the budget allocation. Fine tune the parameters to achieve less error.
