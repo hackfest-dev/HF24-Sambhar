@@ -39,3 +39,19 @@ def home():
 @auth.route('/inventory')
 def inventory():
     return render_template("inventory.html")
+
+@auth.route('/addtoinventory')
+def addtoinventory():
+    return render_template("addtoinventory.html")
+
+@auth.route('/updateinventory')
+def updateinventory():
+    return render_template("updateinventory.html")
+
+@auth.route('/salesPurchases')
+def salesPurchases():
+    return render_template("sales.html")
+
+@auth.route('/setting')
+def setting():
+    return render_template("setting.html")

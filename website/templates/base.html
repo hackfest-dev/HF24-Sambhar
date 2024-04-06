@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Home{% endblock %}</title>
-    {% block style%}
     <link rel="stylesheet" href="../static/base.css">
+    {% block style%}
     {% endblock %}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
@@ -22,17 +22,16 @@
         <div class="nav-div">
             <nav class="nav-bar">
                 <li class="nav_item"><a href="/home"  class="nav_link">Home</a></li>
-                <li class="nav_item"><a href="sales.html" target="_blank" class="nav_link">Sales & Purchases</a></li>
+                <li class="nav_item"><a href="/salesPurchases" target="_parent" class="nav_link">Sales & Purchases</a></li>
                 <li class="nav_item"><a href="/inventory" target="_parent" class="nav_link">Inventory</a>
                     <ul class="sub-menu">
-                        <li class="nav_item"><a href="addtoinvent.html" class="nav_link">Add to Inventory</a></li>
-                        <li class="nav_item"><a href="updateinvent.html" class="nav_link">Update Inventory</a></li>
+                        <li class="nav_item"><a href="/addtoinventory" target="_parent" class="nav_link">Add to Inventory</a></li>
+                        <li class="nav_item"><a href="/updateinventory" target="_parent" class="nav_link">Update Inventory</a></li>
                       </ul>
                 </li>
                 <li class="nav_item"><a href="#" target="_parent" class="nav_link">Reports & Intelligence</a></li>
                 <li class="nav_item"><a href="#" target="_parent" class="nav_link">Buyers & Suppliers</a></li>
-                <li class="nav_item"><a href="#" target="_parent" class="nav_link">Profile</a></li>
-                <li class="nav_item"><a href="setting.html" target="_parent" class="nav_link">Setting</a></li>
+                <li class="nav_item"><a href="/setting" target="_parent" class="nav_link">Setting</a></li>
                 <!-- More menu items here -->
             </nav>
             <nav class="nav-bar">

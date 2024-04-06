@@ -1,0 +1,57 @@
+{%extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="../static/setting.css">
+{% endblock%} 
+{% block title %} Inventory {% endblock%}
+
+{% block content %}
+<body>
+    <div class="container">
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Account Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>User Name</label>
+                            <input type="text" placeholder="Enter User Name">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Current Password</label>
+                            <input type="text" placeholder="Enter Current Password">
+                        </div>
+                        <!--<div class="input-field">
+                            <label>Units</label>
+                            <select >
+                                <option disabled selected>Select Units</option>
+                                <option>Kg</option>
+                                <option>Litres</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>-->
+                        <div class="input-field">
+                            <label>New Password</label>
+                            <input type="text" placeholder="Enter New Password">
+                        </div>
+                        <div class="input-field">
+                            <label>Update Phone.No</label>
+                            <input type="number" placeholder="Enter New Phone.No">
+                        </div>
+                        <div class="details ID">
+                            <span class="title"></span>
+
+                            <div class="fields">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="sumbit">
+                        <span class="btnText">Update</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock%}

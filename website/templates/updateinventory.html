@@ -1,0 +1,108 @@
+{%extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="../static/updateinventory.css">
+{% endblock%} 
+{% block title %} Inventory {% endblock%}
+
+{% block content %}
+<body>
+    <div class="container">
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Item Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Item Id</label>
+                            <input type="number" placeholder="Enter Item ID" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Item Category</label>
+                            <input type="text" placeholder="Enter Item Category" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Item Name</label>
+                            <input type="text" placeholder="Enter Item Name" >
+                        </div>
+
+                        <div class="input-field">
+                            <label>Current Stock</label>
+                            <input type="number" placeholder="Enter Current Stock" >
+                        </div>
+                        <div class="input-field">
+                            <label>Units</label>
+                            <select >
+                                <option disabled selected>Select Units</option>
+                                <option>Kg</option>
+                                <option>Litres</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        <div class="details ID">
+                            <span class="title">Price Details</span>
+        
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Default Price</label>
+                                    <input type="number" placeholder="Enter Default Price" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Regular Selling Price</label>
+                                    <input type="number" placeholder="Enter RSP" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Regular Buying Price</label>
+                                    <input type="number" placeholder="Enter RBP" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>MRP</label>
+                                    <input type="number" placeholder="Enter MRP" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Dealer Price</label>
+                                    <input type="number" placeholder="Enter Dealer Price" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Distributor Price</label>
+                                    <input type="number" placeholder="Enter expiry date" required>
+                                </div>
+                                <div class="input-field">
+                                    <label>Tax</label>
+                                    <input type="number" placeholder="Enter expiry date" required>
+                                </div>
+                                <div class="input-field">
+                                    <label>Item Type</label>
+                                    <input type="text" placeholder="Enter expiry date" required>
+                                </div>
+                                <div class="input-field">
+                                    <label>HSN Code</label>
+                                    <input type="number" placeholder="Enter expiry date" required>
+                                </div>
+                                <div class="input-field">
+                                    <label>Min Stock Level</label>
+                                    <input type="number" placeholder="Enter expiry date" required>
+                                </div>
+                                <div class="input-field">
+                                    <label>Max Stock Level</label>
+                                    <input type="number" placeholder="Enter expiry date" required>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <button class="sumbit">
+                    <span class="btnText">Update</span>
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock%}

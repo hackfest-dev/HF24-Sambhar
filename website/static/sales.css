@@ -4,7 +4,7 @@
 .textbox {
     display: inline-block;
     margin-top: 20px;
-    margin-right: 20px;
+    margin-right: 60px;
     opacity: 0;
     animation: fadeIn 0.5s forwards;
 }
@@ -35,7 +35,7 @@
     font-size: 15px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(35, 14, 172);
+    background-color: black;
     color: #fff;
     cursor: pointer;
     animation: fadeIn 0.5s forwards;
@@ -43,15 +43,15 @@
 }
 
 .btn:hover {
-    background-color: rgb(17, 6, 87);
-    color: white;
+    background-color: white;
+    color: black;
     border: 1px solid grey;
 }
 
 
 .form-div {
-    display: inline-flex; /* Change from display: inline-flex; */
-    /*flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    display: flex; /* Change from display: inline-flex; */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
     justify-content: space-between; /* Adjust alignment of items */
     align-items: flex-start; /* Adjust alignment of items */
     margin-bottom: 20px;
@@ -75,7 +75,7 @@
   
   /* Table header */
   .data-table th {
-    background-color: rgb(17, 6, 87);
+    background-color: rgb(52, 52, 52);
     color: #fff;
     padding: 10px;
     text-align: center;
