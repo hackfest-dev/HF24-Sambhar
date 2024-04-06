@@ -101,3 +101,7 @@
   .data-table tbody tr:hover {
     background-color: #e0e0e0;
   }
+
+  form button:hover {
+    background-color: rgb(17, 6, 87);
+  }
