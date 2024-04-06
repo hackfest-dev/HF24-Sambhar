@@ -23,10 +23,13 @@
 
 
 ##Constraints:
-	Time complexity involved in model training and prediction for each data update.
-	To allocate the amount that can be invested based on the total budget should is 
-	Model needed or greedy strategy with heuristic of fractional knapsack will solve the 
-	Problem in O(n * nl*og ( n )  ) instead of 2^n - go with XGBoosts.
+> Time complexity involved in model training and prediction for each data update.
+
+> To allocate the amount that can be invested based on the total budget should is 
+
+> Model needed or greedy strategy with heuristic of fractional knapsack will solve the 
+
+> Problem in O(n * nl*og ( n )  ) instead of 2^n - go with XGBoosts.
 
 
 
@@ -49,16 +52,16 @@
 
 ##Solution Strategy
 
-Use Decision Tree Regressor or Random Forest Regressor to predict the budget allocation. Fine tune the parameters to achieve less error.
-Use matplotlib or other visualisation methods and use PCA to show the overall statistical summary.
+> Use Decision Tree Regressor or Random Forest Regressor to predict the budget allocation. Fine tune the parameters to achieve less error.
 
-Parameters needed:
-Stock status per item_id and item_name as a bar plot.(to know the raw material status)
-Company vs quantity procured per item_id for current week.(to know the customer)
-Price vs item as a linear graph and use this parameter in machine learning to predict the future price as well (stock price).
-Finished product vs quantity. (amount of finished stock for selling)
+> Use matplotlib or other visualisation methods and use PCA to show the overall statistical summary.
 
-Research about it.
-To be taken care of from the backend side and the model will be provided as a separate py_class header file.
+###Parameters needed:
+
+> Stock status per item_id and item_name as a bar plot.(to know the raw material status)
+> Company vs quantity procured per item_id for current week.(to know the customer)
+> Price vs item as a linear graph and use this parameter in machine learning to predict the future price as well (stock price).
+> Finished product vs quantity. (amount of finished stock for selling)
+
 
 
