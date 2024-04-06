@@ -25,6 +25,9 @@
 ## Constraints:
 > Time complexity involved in model training and prediction for each data update To allocate the amount that can be invested based on the total budget should is Model needed or greedy strategy with heuristic of fractional knapsack will solve the Problem in O(n * nl*og ( n )  ) instead of 2^n - go with XGBoosts.
 
+> Rainy day of our system.
+
+> Making generic for physical inventory as well as for a digital inventory.
 
 
 
@@ -33,29 +36,21 @@
 
 ## Context and Scope
 
-
-
-
-
-
-
-
-
+> Is a generic model that can be used by any kind of inventory system along with even digital inventory systems.
+> Especially designed for SMEs
 
 
 
 ## Solution Strategy
 
-> Use Decision Tree Regressor or Random Forest Regressor to predict the budget allocation. Fine tune the parameters to achieve less error.
+> Provide data integrity by having the data access restrictions following the Three Schema Architecture.
 
-> Use matplotlib or other visualisation methods and use PCA to show the overall statistical summary.
+> Use Decision Tree Regressor or Random Forest Regressor with gradient based boosting to predict the budget allocation. Fine tune the parameters to achieve less error.
 
-### Parameters needed:
+> Use matplotlib or other visualisation methods to show the overall statistical summary and to forecast the predictions.
 
-> Stock status per item_id and item_name as a bar plot.(to know the raw material status)
-> Company vs quantity procured per item_id for current week.(to know the customer)
-> Price vs item as a linear graph and use this parameter in machine learning to predict the future price as well (stock price).
-> Finished product vs quantity. (amount of finished stock for selling)
+> Runs in docker so that the system is compatible with any machine.
+
 
 
 
