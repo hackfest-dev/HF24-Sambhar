@@ -61,7 +61,7 @@
 
 # SYSTEM ARCHITECTURE
 
-![Alt text](architecture.png)
+![Alt text](arch5.jpg)
 
 
 
