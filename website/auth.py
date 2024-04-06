@@ -40,8 +40,11 @@ def home():
 @auth.route('/inventory')
 def inventory():
     inventory_items = db.session.query(Inventory, Category, Units).\
-        join(Category, Inventory.category_id == Category.id).\
-        join(Units, Inventory.units_id == Units.id).all()
+        filter(Inventory.item_category == Category.category_id).\
+        filter(Inventory.units == Units.unit_id).all()
+    print(inventory_items)
+    items = db.session.query(Inventory).all()
+    print(items[1].item_category)
     return render_template("inventory.html", inventory_items=inventory_items)
 
 @auth.route('/addtoinventory')

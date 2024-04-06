@@ -69,28 +69,29 @@
         </thead>
         <tbody>
           <!-- Sales data rows -->
-          {% for invent, category, units in query_result %}
+          {% for invent, category, units in inventory_items %}
           <tr>
-            <td>{{ invent.id }}</td>
+            <td>{{ invent.item_id }}</td>
+            <td>{{ category.category_name }}</td>
             <td>{{ invent.item_name }}</td>
-            <td>{{ category.name }}</td>
-            <td>{{ units.name }}</td>
+            <td>{{ invent.current_stock }}</td>
+            <td>{{ units.unit_name }}</td>
             <td>{{ invent.default_price }}</td>
             <td>{{ invent.regular_selling_price }}</td>
             <td>{{ invent.regular_buying_price }}</td>
             <td>{{ invent.mrp }}</td>
             <td>{{ invent.dealer_price }}</td>
-            <td>{{ invent.distributer_price }}</td>
+            <td>{{ invent.distributor_price }}</td>
             <td>{{ invent.tax }}</td>
             <td>{{ invent.item_type }}</td>
             {% if invent.current_stock < invent.min_stock_level %}
               <td><p style="color: red;">Less Stock</p></td>
-            {% elif if invent.current_stock > invent.max_stock_level %}   
-              <td><p style="color: yellow;">More Stock</p></td>
+            {% elif invent.current_stock > invent.max_stock_level %}   
+              <td><p style="color: orange;">More Stock</p></td>
             {% else %}
               <td><p style="color: green;">Optimal Stock</p></td>
             {% endif %}
-              <td>{{ invent.hsn_code }}</td>
+            <td>{{ invent.hsn_code }}</td>
             <td>{{ invent.min_stock_level }}</td>
             <td>{{ invent.max_stock_level }}</td>
             <!-- Add table cells for other attributes -->
