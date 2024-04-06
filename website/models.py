@@ -78,4 +78,5 @@ class Sales_purchases(db.Column):
     
     sales_id=db.Column(db.Integer,db.ForeignKey('stock_movement.sales_id'))
     company=db.Column(db.Integer,db.ForeignKey('companies.company_id'))
-
+    sales_date=db.Column(db.Date)
+    sales_status=db.Column(db.String(20))
