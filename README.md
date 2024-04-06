@@ -42,6 +42,13 @@
 
 
 ## Solution Strategy
+> Provide data integrity by having the data access restrictions following the Three Schema Architecture.
+
+> Use Decision Tree Regressor or Random Forest Regressor with gradient based boosting to predict the budget allocation. Fine tune the parameters to achieve less error.
+
+> Use matplotlib or other visualisation methods to show the overall statistical summary and to forecast the predictions.
+
+> Runs in docker so that the system is compatible with any machine
 
 ### Data Preprocessing
 > Data Discretisation
@@ -52,13 +59,8 @@
 
 > Data Reduction
 
-> Provide data integrity by having the data access restrictions following the Three Schema Architecture.
 
-> Use Decision Tree Regressor or Random Forest Regressor with gradient based boosting to predict the budget allocation. Fine tune the parameters to achieve less error.
-
-> Use matplotlib or other visualisation methods to show the overall statistical summary and to forecast the predictions.
-
-> Runs in docker so that the system is compatible with any machine.
+.
 
 
 
