@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title%}Document{% endblock %}</title>
+    <title>{% block title %}Home{% endblock %}</title>
+    {% block style%}
+    <link rel="stylesheet" href="../static/base.css">
+    {% endblock %}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0OZvNj/pv68vc4R6zn9v7tUa7d+I3z9CzSeerMyZ8v1H2fCU5Z6P8CKeEABa8" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+    <header>
+        <div class="company-user">
+            <div class="company-name">Sambhar</div>
+            <div class="username">Veeresh Kumar</div>
+        </div>
+        <div class="nav-div">
+            <nav class="nav-bar">
+                <li class="nav_item"><a href="/home"  class="nav_link">Home</a></li>
+                <li class="nav_item"><a href="sales.html" target="_blank" class="nav_link">Sales & Purchases</a></li>
+                <li class="nav_item"><a href="/inventory" target="_parent" class="nav_link">Inventory</a>
+                    <ul class="sub-menu">
+                        <li class="nav_item"><a href="addtoinvent.html" class="nav_link">Add to Inventory</a></li>
+                        <li class="nav_item"><a href="updateinvent.html" class="nav_link">Update Inventory</a></li>
+                      </ul>
+                </li>
+                <li class="nav_item"><a href="#" target="_parent" class="nav_link">Reports & Intelligence</a></li>
+                <li class="nav_item"><a href="#" target="_parent" class="nav_link">Buyers & Suppliers</a></li>
+                <li class="nav_item"><a href="#" target="_parent" class="nav_link">Profile</a></li>
+                <li class="nav_item"><a href="setting.html" target="_parent" class="nav_link">Setting</a></li>
+                <!-- More menu items here -->
+            </nav>
+            <nav class="nav-bar">
+                <li class="nav_item" ><a href="/logout" target="_parent" class="nav_link">Logout</a></li>
+            </nav>
+        </div>
+    </header>
 <body>
-    {% block content%}
+    {% block content %}
     {% endblock %}
 </body>
 </html>

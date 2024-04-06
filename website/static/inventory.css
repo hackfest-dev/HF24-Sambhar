@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    margin: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*justify-content: space-between; /* Align items at the start and end of the flex container */
+    /*align-items: center; /* Center align items vertically */
+}
+.company-user{
+    padding: 20px;
+    display: inline-flex;
+    justify-content: space-between;
+
+}
+.company-name{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    color: black;
+}
+.username{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+}
+.nav-div {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    background-color: rgb(17, 6, 87);
+}
+.nav-bar {
+    list-style: none;
+    font-size: 18px;
+    display: flex; /* Apply flex to the nav bar */
+}
+.nav_item {
+    margin-right: 20px; /* Add spacing between menu items */
+    transition: all 0.3s;
+    position: relative;
+}
+.nav_link{
+    text-decoration: none;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav_link:hover{
+    text-decoration: underline;
+    color: white;
+}
+.sub-menu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background-color: rgb(17, 6, 87);
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+    z-index: +1;
+    transition: opacity 0.4s ease, visibility 0.4s ease; /* Apply transition effect */
+}
+.nav_item:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+.sub-menu li {
+    margin: 5px 0;
+    list-style: none;
+    justify-content: space-between;
+}
+.form-div{
+    margin-left: 20px;
+}
+.textbox {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn {
+    width: auto;
+    padding: 10px 40px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(35, 14, 172);
+    color: #fff;
+    cursor: pointer;
+    animation: fadeIn 0.5s forwards;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgb(17, 6, 87);
+    color: white;
+    border: 1px solid grey;
+}
+
+
+.form-div {
+    display: inline-flex; /* Change from display: inline-flex; */
+    /*flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    justify-content: space-between; /* Adjust alignment of items */
+    align-items: flex-start; /* Adjust alignment of items */
+    margin-bottom: 20px;
+}
+/* General table styling */
+.data-table {
+    width: 99%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  /* Table caption */
+  .data-table caption {
+    font-size: 1.2em;
+    margin-bottom: 0px;
+    background-color: #ccc;
+    padding: 1.2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Table header */
+  .data-table th {
+    background-color: rgb(17, 6, 87);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  /* Table body */
+  .data-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+  
+  /* Alternating row colors */
+  .data-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  /* Hover effect on rows */
+  .data-table tbody tr:hover {
+    background-color: #e0e0e0;
+  }

@@ -1,0 +1,100 @@
+{%extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="../static/inventory.css">
+{% endblock%} 
+{% block title %} Inventory {% endblock%}
+
+{% block content %}
+<body>
+    <div class="form-div">
+        <form class="sales-form" action="#">
+            <div class="textbox">
+                <input type="number" placeholder="Item ID">
+            </div>
+            <div class="textbox">
+                <input type="text" placeholder="Item Category">
+            </div>
+            <div class="textbox">
+                <input type="text" placeholder="Item Name">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="Default Price">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="RegularSellingPrice">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="Regular Buying Price">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="MRP">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="Dealer Price">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="Distributor Price">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="Tax">
+            </div>
+            <div class="textbox">
+                <input type="number" placeholder="HSN Code">
+            </div>
+            <input type="submit" class="btn" value="Search">
+        </form>
+    </div>
+    <table class="data-table">
+        <caption>Inventory</caption>
+        <thead>
+          <tr>
+            <th>Item ID</th>
+            <th>Item Category</th>
+            <th>Item Name</th>
+            <th>Current Stock</th>
+            <th>Units</th>
+            <th>Default Price</th>
+            <th>Regular Selling Price</th>
+            <th>Regular Buying Price</th>
+            <th>MRP</th>
+            <th>Dealer Price</th>
+            <th>Distributor Price</th>
+            <th>Tax</th>
+            <th>Item Type</th>
+            <th>HSN Code</th>
+            <th>Min Stock Level</th>
+            <th>Max Stock Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Sales data rows -->
+          <tr>
+            <td>4</td>
+            <td>SpanX</td>
+            <td>2022-04-01</td>
+            <td>Received</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Product B</td>
+            <td>2022-04-02</td>
+            <td>Sale</td>
+          </tr>
+          <!-- Purchases data rows -->
+          <tr>
+            <td>101</td>
+            <td>Product X</td>
+            <td>2022-04-03</td>
+            <td>Purchase</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>Product Y</td>
+            <td>2022-04-04</td>
+            <td>Purchase</td>
+          </tr>
+          <!-- Add more data rows as needed -->
+        </tbody>
+      </table>
+</body>
+{% endblock%}

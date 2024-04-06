@@ -22,7 +22,7 @@ def login():
             else:
                 flash('Incorrect password,try again.',category='error')  
         else:
-            flash('Email does not exists,ask administrator to create a new user.',category='Error')
+            flash('Email does not exists',category='error')
         
     return render_template("login.html",user=current_user)
 
@@ -32,6 +32,10 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login')) 
 
-@auth.route('/Home')
+@auth.route('/home')
 def home():
     return render_template("home.html")
+
+@auth.route('/inventory')
+def inventory():
+    return render_template("inventory.html")
