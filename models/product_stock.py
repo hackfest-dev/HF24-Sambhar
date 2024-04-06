@@ -51,7 +51,8 @@ class product_stock:
         ax.set_xticklabels(unique_finished_prod_ids, rotation=45, ha='right')
         ax.legend()
 
-        plt.show()
+        # plt.show()
+        plt.savefig('pie1_chart.png', dpi = 130) 
 
 
 

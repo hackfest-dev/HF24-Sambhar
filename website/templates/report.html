@@ -9,13 +9,73 @@
 <body>
 
 <div class="button-container">
-    <button class="button" >Current stock</button>
-    <button class="button">Budget Allocation</button>
+    <button class="button" id="b1" onclick="runCurrent()">Current stock</button>
+
+    <script>
+        function runCurrent() {
+
+            fetch('/run_current')
+                .then(response => response)
+                .then(data => {
+                    // Open a new window and display the image
+                    let newWindow = window.open();
+                    newWindow.document.write(`<div style="display: flex; justify-content: center; align-items: center; height: 100vh;"><img src="${data.url}" alt="Pie Chart"></div>`);
+                })
+                
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+    <button class="button" id="b2" onclick="budgetAlloc()">Budget Allocation</button>
+    
+    <script>
+        function budgetAlloc() {
+            // Send a request to the server
+            fetch('/budget_allocate')
+                .then(response => response.json())  // Parse response as JSON
+                .then(data => {
+                    // Display the output on the website
+                    let output = data.output;  // Assuming the output key contains the actual output
+                    let newWindow = window.open();
+                    newWindow.document.write(`<pre>${output}</pre>`); // Display text data inside <pre> tag for formatting
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+
+    
 
 </div>
 <div class="button-container1">
-    <button class="button1">Raw Material status</button>
-    <button class="button1">Forecast</button>
+    <button class="button1" id="b3" onclick="productStatus()">Product status</button>
+    <script>
+            function productStatus() {
+
+            fetch('/product_status')
+                .then(response => response)
+                .then(data => {
+                    // Open a new window and display the image
+                    let newWindow = window.open();
+                    newWindow.document.write(`<div style="display: flex; justify-content: center; align-items: center; height: 100vh;"><img src="${data.url}" alt="Bar chart"></div>`);
+                })
+                
+                .catch(error => console.error('Error:', error));
+            }
+    </script>
+    <button class="button1" id="b4" onclick="foreCast()">Forecast</button>
+    <script>
+        function foreCast() {
+
+        fetch('/fore_cast')
+            .then(response => response)
+            .then(data => {
+                // Open a new window and display the image
+                let newWindow = window.open();
+                newWindow.document.write(`<div style="display: flex; justify-content: center; align-items: center; height: 100vh;"><img src="${data.url}" alt="linear plot"></div>`);
+            })
+            
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </div>
 
 </body>

@@ -46,7 +46,8 @@ class dt_regressor_sambhar:
 if __name__ == '__main__':
     dt = dt_regressor_sambhar()
     dt.predict()
-    ip = int(input("Enter the budget"))
+    # ip = int(input("Enter the budget"))
+    ip = 25000
 
     for max_nodes in [2]:
         prediction = dt.predictions(max_nodes, ip)
