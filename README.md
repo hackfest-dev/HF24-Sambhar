@@ -59,8 +59,10 @@
 
 > Data Reduction
 
+# SYSTEM ARCHITECTURE
 
-.
+![Alt text](architecture.png)
+
 
 
 
