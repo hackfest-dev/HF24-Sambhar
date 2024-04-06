@@ -12,7 +12,6 @@ class Category(db.Model):
     category_name=db.Column(db.String(20))
 
 class Companies(db.Model):
-    
     company_id=db.Column(db.Integer,primary_key=True)
     company_name=db.Column(db.String(50))
     company_address_line1=db.Column(db.String(50))
@@ -51,7 +50,6 @@ class Inventory(db.Model):
     max_stock_level=db.Column(db.Integer)
     
 class Stock_movement(db.Model):
-    
     sales_id=db.Column(db.Integer,primary_key=True)
     from_store=db.Column(db.Integer,foreign_key='store.store_id')
     to_store=db.Column(db.Integer,foreign_key='store.store_id')
@@ -59,8 +57,7 @@ class Stock_movement(db.Model):
     mov_date=db.Column(db.Date)
     
     
-class Transaction(db.Model):
-    
+class Transaction(db.Model):    
     sales_id=db.Column(db.Integer,foreign_key='stock_movement.sales_id')
     item_id=db.Column(db.String(10),foreign_key='inventory.item_id')
     price_per_unit=db.Column(db.Integer)
@@ -71,8 +68,7 @@ class Produces(db.Model):
     raw_material_id=db.Column(db.String(10),foreign_key='inventory.item_id')
     quantity=db.Column(db.Integer)
 
-class Sales_purchases(db.Column):
-    
+class Sales_purchases(db.Column):    
     sales_id=db.Column(db.Integer,foreign_key='stock_movement.sales_id')
     company=db.Column(db.Integer,foreign_key='companies.company_id')
 
