@@ -1,4 +1,4 @@
-#INDEX
+# INDEX
 
 > Introduction and Goals
 > Constraints
@@ -6,7 +6,7 @@
 > Solution Strategy
 
 
-##Introduction and Goals :
+## Introduction and Goals :
 
 	INTRODUCTION:
 > This documentation provides the goals of our project, and the requirements to achieve the goal, the constraints and the method used to overcome them and the solution strategy
@@ -22,7 +22,7 @@
 
 
 
-##Constraints:
+## Constraints:
 > Time complexity involved in model training and prediction for each data update.
 
 > To allocate the amount that can be invested based on the total budget should is 
@@ -37,7 +37,7 @@
 
 
 
-##Context and Scope
+## Context and Scope
 
 
 
@@ -50,13 +50,13 @@
 
 
 
-##Solution Strategy
+## Solution Strategy
 
 > Use Decision Tree Regressor or Random Forest Regressor to predict the budget allocation. Fine tune the parameters to achieve less error.
 
 > Use matplotlib or other visualisation methods and use PCA to show the overall statistical summary.
 
-###Parameters needed:
+### Parameters needed:
 
 > Stock status per item_id and item_name as a bar plot.(to know the raw material status)
 > Company vs quantity procured per item_id for current week.(to know the customer)
