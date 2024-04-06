@@ -59,3 +59,7 @@ def salesPurchases():
 @auth.route('/setting')
 def setting():
     return render_template("setting.html")
+
+@auth.route('/reports')
+def reports():
+    return render_template("report.html")

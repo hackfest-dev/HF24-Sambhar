@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="report.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="text-box">
+        <h1 class="h1" id="welcome">WELCOME</h1>
+        <h1 class="h1" id="hindi">स्वागत</h1>
+        <h1 class="h1" id="kannada">ಸುಸ್ವಾಗತ</h1>
+        <h1 class="h1" id="tamil">வணக்கம்</h1>
+        <h1 class="h1" id="telugu">స్వాగతం</h1>
+        <h1 class="h1" id="malayalam">സ്വാഗതം</h1>
+        
+    </div>
+</div>
+<footer class="footer">
+  <div class="waves">
+    <div class="wave" id="wave1"></div>
+    <div class="wave" id="wave2"></div>
+    <div class="wave" id="wave3"></div>
+    <div class="wave" id="wave4"></div>
+  </div>
+  <ul class="social-icon">
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a></li>
+  </ul>
+  <ul class="menu">
+    <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Inventory</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Logout</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+  </ul>
+  <p>&copy;2024 SAMBHAR | All Rights Reserved</p>
+</footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- footer copy right section end -->
+  <div class="cursor"></div>
+<div class="cursor2"></div>
+<script>
+  var cursor = document.querySelector(".cursor");
+  var cursor2 = document.querySelector(".cursor2");
+  document.addEventListener("mousemove",function(e){
+    cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+  });
+</script>
+
+</body>
+</html>

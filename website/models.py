@@ -69,6 +69,7 @@ class Produces(db.Model):
     quantity=db.Column(db.Integer)
 
 class Sales_purchases(db.Column):
-    sales_id=db.Column(db.Integer,foreign_key='stock_movement.sales_id')
-    company=db.Column(db.Integer,foreign_key='companies.company_id')
+    
+    sales_id=db.Column(db.Integer,db.ForeignKey('stock_movement.sales_id'))
+    company=db.Column(db.Integer,db.ForeignKey('companies.company_id'))
 
