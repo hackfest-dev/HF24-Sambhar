@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User,Inventory,Category,Units
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
@@ -39,7 +39,10 @@ def home():
 
 @auth.route('/inventory')
 def inventory():
-    return render_template("inventory.html")
+    inventory_items = db.session.query(Inventory, Category, Units).\
+        join(Category, Inventory.category_id == Category.id).\
+        join(Units, Inventory.units_id == Units.id).all()
+    return render_template("inventory.html", inventory_items=inventory_items)
 
 @auth.route('/addtoinventory')
 def addtoinventory():

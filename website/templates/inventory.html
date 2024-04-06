@@ -61,6 +61,7 @@
             <th>Distributor Price</th>
             <th>Tax</th>
             <th>Item Type</th>
+            <th>Stock Status</th>
             <th>HSN Code</th>
             <th>Min Stock Level</th>
             <th>Max Stock Level</th>
@@ -68,31 +69,33 @@
         </thead>
         <tbody>
           <!-- Sales data rows -->
+          {% for invent, category, units in query_result %}
           <tr>
-            <td>4</td>
-            <td>SpanX</td>
-            <td>2022-04-01</td>
-            <td>Received</td>
+            <td>{{ invent.id }}</td>
+            <td>{{ invent.item_name }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ units.name }}</td>
+            <td>{{ invent.default_price }}</td>
+            <td>{{ invent.regular_selling_price }}</td>
+            <td>{{ invent.regular_buying_price }}</td>
+            <td>{{ invent.mrp }}</td>
+            <td>{{ invent.dealer_price }}</td>
+            <td>{{ invent.distributer_price }}</td>
+            <td>{{ invent.tax }}</td>
+            <td>{{ invent.item_type }}</td>
+            {% if invent.current_stock < invent.min_stock_level %}
+              <td><p style="color: red;">Less Stock</p></td>
+            {% elif if invent.current_stock > invent.max_stock_level %}   
+              <td><p style="color: yellow;">More Stock</p></td>
+            {% else %}
+              <td><p style="color: green;">Optimal Stock</p></td>
+            {% endif %}
+              <td>{{ invent.hsn_code }}</td>
+            <td>{{ invent.min_stock_level }}</td>
+            <td>{{ invent.max_stock_level }}</td>
+            <!-- Add table cells for other attributes -->
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Product B</td>
-            <td>2022-04-02</td>
-            <td>Sale</td>
-          </tr>
-          <!-- Purchases data rows -->
-          <tr>
-            <td>101</td>
-            <td>Product X</td>
-            <td>2022-04-03</td>
-            <td>Purchase</td>
-          </tr>
-          <tr>
-            <td>102</td>
-            <td>Product Y</td>
-            <td>2022-04-04</td>
-            <td>Purchase</td>
-          </tr>
+          {% endfor %}
           <!-- Add more data rows as needed -->
         </tbody>
       </table>

@@ -12,7 +12,6 @@ class Category(db.Model):
     category_name=db.Column(db.String(20))
 
 class Companies(db.Model):
-    
     company_id=db.Column(db.Integer,primary_key=True)
     company_name=db.Column(db.String(50))
     company_address_line1=db.Column(db.String(50))
@@ -34,10 +33,10 @@ class Store(db.Model):
 class Inventory(db.Model):
     
     item_id=db.Column(db.String(10),primary_key=True)
-    item_category=db.Column(db.Integer,db.ForeignKey('category.category_id'))
+    item_category=db.Column(db.Integer,foreign_key='category.category_id')
     item_name=db.Column(db.String(20))
     current_stock=db.Column(db.Integer)
-    units=db.Column(db.Integer,db.ForeignKey('units.unit_id'))
+    units=db.Column(db.Integer,foreign_key='units.unit_id')
     default_price=db.Column(db.Integer)
     regular_selling_price=db.Column(db.Integer)
     regular_buying_price=db.Column(db.Integer)
@@ -51,32 +50,26 @@ class Inventory(db.Model):
     max_stock_level=db.Column(db.Integer)
     
 class Stock_movement(db.Model):
-    
     sales_id=db.Column(db.Integer,primary_key=True)
-    from_store=db.Column(db.Integer,db.ForeignKey('store.store_id'))
-    to_store=db.Column(db.Integer,db.ForeignKey('store.store_id'))
+    from_store=db.Column(db.Integer,foreign_key='store.store_id')
+    to_store=db.Column(db.Integer,foreign_key='store.store_id')
     mov_type=db.Column(db.String(20))
     mov_date=db.Column(db.Date)
     
     
-class Transaction(db.Model):
-    
-    id=db.Column(db.Integer,primary_key=True,autoincrement=True)
-    sales_id=db.Column(db.Integer,db.ForeignKey('stock_movement.sales_id'))
-    item_id=db.Column(db.String(10),db.ForeignKey('inventory.item_id'))
+class Transaction(db.Model):    
+    sales_id=db.Column(db.Integer,foreign_key='stock_movement.sales_id')
+    item_id=db.Column(db.String(10),foreign_key='inventory.item_id')
     price_per_unit=db.Column(db.Integer)
     quantity=db.Column(db.Integer)
     
 class Produces(db.Model):
-    
-    id=db.Column(db.Integer,primary_key=True,autoincrement=True)
-    finished_prod_id=db.Column(db.String(10),db.ForeignKey('inventory.item_id'))
-    raw_material_id=db.Column(db.String(10),db.ForeignKey('inventory.item_id'))
+    finished_prod_id=db.Column(db.String(10),foreign_key='inventory.item_id')
+    raw_material_id=db.Column(db.String(10),foreign_key='inventory.item_id')
     quantity=db.Column(db.Integer)
 
 class Sales_purchases(db.Column):
     
     sales_id=db.Column(db.Integer,db.ForeignKey('stock_movement.sales_id'))
     company=db.Column(db.Integer,db.ForeignKey('companies.company_id'))
-    sales_date=db.Column(db.Date)
-    sales_status=db.Column(db.String(20))
+
