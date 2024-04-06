@@ -2,13 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 import mysql.connector
 # Load your historical data
-# Assuming 'date' is the date column and 'price' is the raw material price column
-# Replace 'your_data.csv' with the actual filename or database query
-
-
 host1 = "localhost"
 user1 = "root"
 password1 = ""
@@ -22,69 +17,47 @@ connection = mysql.connector.connect(
 
 cursor = connection.cursor()
 
-cursor.execute("SELECT material_id, mat_date FROM material_history")
+cursor.execute("SELECT material_id, mat_date, mrp FROM material_history")
 x = cursor.fetchall()
 
-df = pd.DataFrame(x, columns=["material_id", "mat_date"])
+df = pd.DataFrame(x, columns=["material_id", "mat_date", "mrp"])
 
-# Convert 'date' column to datetime format and set it as index
-df['date'] = pd.to_datetime(df["mat_date"])
-df.set_index('date', inplace=True)
-df.drop(columns="mat_date", inplace=True)
-# Perform any necessary data preprocessing, e.g., filling missing values, resampling
-print(df)
-# Visualize the time series
-plt.figure(figsize=(10, 6))
-plt.plot(df.index.tolist(), df['material_id'].values.tolist(), label='Material ID')
-plt.title('Raw Material Price Time Series')
-plt.xlabel('Date')
-plt.ylabel('Material ID')
-plt.show()
+# Aggregate material_id data by date
+group_data = df.groupby(['mat_date', 'material_id']).mean().reset_index()
 
-# Decompose the time series to identify trends and seasonality
-# decomposition = seasonal_decompose(data, model='additive')
-# decomposition.plot()
-# plt.show()
+# Pivot the table to have date as index and material_id as columns
+pivot_data = group_data.pivot(index='mat_date', columns='material_id', values='mrp')
 
-# Stationarity check
-# You can use statistical tests like ADF or KPSS, or visualize ACF and PACF plots
-# If non-stationary, perform differencing or other transformations
+# Fill missing values with forward fill
+pivot_data = pivot_data.ffill()
 
-# SARIMA model parameters selection using ACF and PACF plots
-# plot_acf(data, lags=20)
-# plot_pacf(data, lags=20)
-# plt.show()
-
-# Define SARIMA model parameters
-p = 1  # Autoregressive order
-d = 1  # Differencing order
-q = 1  # Moving average order
-P = 1  # Seasonal autoregressive order
-D = 1  # Seasonal differencing order
-Q = 1  # Seasonal moving average order
-m = 12  # Seasonal period (assuming monthly data)
+# Set frequency of the index
+pivot_data.index = pd.to_datetime(pivot_data.index)
+pivot_data.index.freq = pd.infer_freq(pivot_data.index)
 
 # Split the data into training and validation sets
-train_data = df.iloc[:-12]  # Use the last 12 months as validation set
-valid_data = df.iloc[-12:]
+train_data = pivot_data.iloc[:-1]  # Use the last month as validation set
+valid_data = pivot_data.iloc[-1:]
 
-# Fit SARIMA model to the training data
-model = SARIMAX(train_data, order=(p, d, q), seasonal_order=(P, D, Q, m))
-results = model.fit()
+# Fit SARIMAX model to the training data for each material_id
+predictions = {}
+for col in train_data.columns:
+    model = SARIMAX(train_data[col], order=(1, 1, 1), seasonal_order=(0, 0, 0, 0))
+    results = model.fit()
+    forecast = results.forecast(steps=1)
+    predictions[col] = forecast[0]
 
-# Make predictions for the next 3 months
-forecast = results.forecast(steps=3)
+# Print the predicted prices for the next month
+print("Predicted Prices for Next Month:")
+for material_id, price in predictions.items():
+    print(f"{material_id}: {price}")
 
-# Print the forecasted prices
-print("Forecasted Prices:")
-print(forecast)
-
-# Visualize the forecast
+# Plot the predicted prices
 plt.figure(figsize=(10, 6))
-plt.plot(train_data.index, train_data, label='Training Data')
-plt.plot(valid_data.index, valid_data, label='Validation Data')
-plt.plot(forecast.index, forecast, label='Forecast', color='red')
-plt.title('Raw Material Price Forecast')
+for material_id, price in predictions.items():
+    plt.plot(valid_data.index, [price] * len(valid_data), label=material_id)
+
+plt.title('Predicted Prices for Next Month')
 plt.xlabel('Date')
 plt.ylabel('Price')
 plt.legend()

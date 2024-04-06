@@ -39,8 +39,8 @@ class current_stock:
         
         plt.title("CURRENT STOCK QUANTITY")
         ax.legend(handles=handles, labels=labels, loc='upper right', fontsize = 'small')
-        # plt.show()
-        plt.savefig('pie_chart.png', dpi = 280) 
+        plt.show()
+        plt.savefig('pie_chart.png') 
 
 if __name__ == '__main__':
     connected = current_stock()
