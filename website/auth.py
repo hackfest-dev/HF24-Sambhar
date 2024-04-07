@@ -12,10 +12,10 @@ auth = Blueprint('auth', __name__)
 
 # Update SQLAlchemy database URI to connect to MySQL
 # Replace 'username', 'password', 'database_name' with actual values
-db_uri = 'mysql+mysqlconnector://username:password@localhost/database_name'
+#db_uri = 'mysql+mysqlconnector://username:password@localhost/database_name'
 
 # Create SQLAlchemy engine
-engine = create_engine(db_uri)
+#engine = create_engine(db_uri)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -49,12 +49,44 @@ def home():
 @auth.route('/inventory')
 def inventory():
     inventory_items = db.session.query(Inventory, Category, Units).\
-        join(Category, Inventory.category_id == Category.id).\
-        join(Units, Inventory.units_id == Units.id).all()
+        join(Category, Inventory.item_category == Category.category_id).\
+        join(Units, Inventory.units == Units.unit_id).all()
     return render_template("inventory.html", inventory_items=inventory_items)
 
-@auth.route('/addtoinventory')
+@auth.route('/addtoinventory',methods=['GET','POST'])
 def addtoinventory():
+    if request.method=='POST':
+        id = request.form.get('item_id')
+        category = request.form.get('item_category')
+        name = request.form.get('item-name')
+        curr_stock = request.form.get('current-stock')
+        units = request.form.get('units')
+        d_price = request.form.get('default-price')
+        r_s_price = request.form.get('r-selling-price')
+        r_b_price = request.form.get('r-buying-price')
+        mrp = request.form.get('mrp')
+        dealer_price = request.form.get('dealer-price')
+        dis_price = request.form.get('dis-price')
+        tax = request.form.get('tax')
+        item_type = request.form.get('item-type')
+        hsn_code = request.form.get('hsn-code')
+        min_stock = request.form.get('min-stock')
+        max_stock = request.form.get('max-stock')
+
+        item = Inventory.query.filter_by(item_id=id).first()
+
+        if item:
+            flash("Item already exists in the Inventory.",category='error')
+        else:
+            it = Category.query.filter_by(category_name=category).first()
+            print(it)
+            cat_id = it.category_id
+            bt = Units.query.filter_by(unit_name=units).first()
+            uni_id = bt.unit_id
+            new_item = Inventory(item_id=id,item_category=cat_id,item_name=name,current_stock=curr_stock,units=uni_id,default_price=d_price,regular_selling_price=r_s_price,regular_buying_price=r_b_price,mrp=mrp,dealer_price=dealer_price,distributor_price=dis_price,tax=tax,item_type=item_type,hsn_code=hsn_code,min_stock_level=min_stock,max_stock_level=max_stock)
+            db.session.add(new_item)
+            db.session.commit()
+
     return render_template("addtoinventory.html")
 
 @auth.route('/updateinventory')
